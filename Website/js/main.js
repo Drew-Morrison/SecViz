@@ -1,3 +1,4 @@
+//Create Ex. Challenge Visualization
 var chart = c3.generate({
     bindto: '#chart',
     data: {
@@ -10,3 +11,20 @@ var chart = c3.generate({
       ]
     }
 });
+
+//Check Ex. Challenge Answer
+function checkAns() {
+  ans = document.f1.ans.value;
+  if (ans.length == 0) {
+    alert("Please enter an answer before submitting.");
+    return false;
+  }
+
+  if (ans === "255.67.8.12") {
+    let myModal = new bootstrap.Modal(document.getElementById('ansModal'), {});
+    myModal.show();
+  } else {
+    alert("Good guess, but not quite right!");
+    return false;
+  }
+}
