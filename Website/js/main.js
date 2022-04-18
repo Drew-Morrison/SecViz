@@ -28,3 +28,24 @@ function checkAns() {
     return false;
   }
 }
+
+// Change Visualization
+function changeViz() {
+  let viz_button = document.getElementById('change_viz_button');
+  let viz_num = document.getElementById('viz_number');
+  let chart_1 = document.getElementById('chart');
+  let chart_2 = document.getElementById('chart2');
+
+  if (viz_button.innerText === "Next") {
+    viz_button.innerText = "Prev";
+    viz_num.innerText = "2 out of 2";
+    chart_1.style.display = "none";
+    chart_2.style.display = "block";
+  } else {
+    viz_button.innerText = "Next";
+    viz_num.innerText = "1 out of 2";
+    chart_1.style.display = "block";
+    chart_2.style.display = "none";
+  }
+  
+}
