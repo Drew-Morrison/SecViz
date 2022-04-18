@@ -20,7 +20,7 @@ function checkAns() {
     return false;
   }
 
-  if (ans === "255.67.8.12") {
+  if (ans === "255.67.8.12" || ans === "RDP") {
     let myModal = new bootstrap.Modal(document.getElementById('ansModal'), {});
     myModal.show();
   } else {
@@ -28,6 +28,32 @@ function checkAns() {
     return false;
   }
 }
+
+//WIP, pressing Enter in answer box is valid
+document.getElementById("ansForm")
+  .onsubmit(function(event) {
+    event.preventDefault();
+    console.log("check");
+    checkAns();
+  });
+
+//Next Question
+function nxtQ() {
+  //Changing Question
+  document.getElementById("qNum").innerHTML = "Question 2 of 2";
+  document.getElementById("qTxt1").innerHTML = "Now with the source IP found, we can focus on gaining more information on the adversary.";
+  document.getElementById("qTxt2").innerHTML = "What <b>protocol</b> is the traffic coming from?";
+  document.getElementById("ansTxt").setAttribute("placeholder", "Protocol");
+  document.getElementById("ansTxt").value = "";
+  
+  //Changing Modal for Finishing Challenge
+  document.getElementById("mdlTxt").innerHTML = "Exquisite work! Click the 'Finish' to collect your points and return to the challenges page.";
+  document.getElementById("mdlNxt").innerHTML = "Finish";
+  document.getElementById("mdlNxt").setAttribute("onclick", "window.location.href='all_challenges.html'");
+}
+
+//Back Button, Finished Challenge
+
 
 // Change Visualization
 function changeViz() {
