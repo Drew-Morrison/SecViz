@@ -54,8 +54,9 @@ button {
     padding: 9px 25px;
     background-color: rgba(1, 136, 169, 1);
     border: none;
-    border-radius: 50px;
+    border-radius: 50px !important;
     cursor: pointer;
+    color: white;
     transition: all 0.3s ease 0s;
 }
 
@@ -63,16 +64,16 @@ button {
     position: absolute;
     width: 377px;
     height: 249px;
-    left: 122px;
-    top: 253px;
+    left: 75px;
+    top: 100px;
 }
 
 #img2 {
     position: absolute;
     width: 377px;
     height: 245px;
-    left: 122px;
-    top: 579px;
+    left: 150px;
+    top: 350px;
 }
 
 #welcome_text_1 {
@@ -80,7 +81,7 @@ button {
     width: 655px;
     height: 56px;
     left: 616px;
-    top: 259px;
+    top: 175px;
 
     font-style: normal;
     font-weight: 400;
@@ -98,16 +99,16 @@ color: #353535;
     width: 586px;
     height: 42px;
     left: 616px;
-    top: 392px;
+    top: 250px;
 
-    font-style: normal;
-    font-weight: 400;
+    font-style: italic;
+    font-weight: lighter;
     font-size: 28px;
     line-height: 42px;
     display: flex;
     align-items: center;
 
-    color: #353535;
+    color: grey;
 }
 
 .start_buttons {
@@ -115,7 +116,7 @@ color: #353535;
     width: 571px;
     height: 101px;
     left: 616px;
-    top: 511px;
+    top: 325px;
 
 } 
 
