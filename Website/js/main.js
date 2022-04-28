@@ -31,8 +31,10 @@ function checkAns() {
 
 // Change Visualization
 function changeViz() {
+  // Next Button
   let viz_button = document.getElementById('change_viz_button');
   let viz_num = document.getElementById('viz_number');
+  // Visualizations
   let chart_1 = document.getElementById('chart');
   let chart_2 = document.getElementById('chart2');
 
