@@ -65,46 +65,47 @@
                 <p class="font-weight-light font-italic color-black mb-1">Answer:</p>
                 <input type="default-text" class="form-control py-1" name="ans" id="ansTxt" placeholder="Source IP">
               </div>
-              <button type="button" id="ansBtn" class="btn btn-primary btn-sm" onclick="checkAns()">Submit</button>
+              <button type="button" id="ansBtn" class="btn btn-primary btn-sm" onclick="checkAns1()">Submit</button>
             </form>
           </div>
         </div>
       </div>
 
       <div class="col-9" style="width: 100%">
-        <div class="card" style="width: 50em;">
-          <div id="chart" style="height: 650px;"></div>
+        <div class="card">
+          <div id="chart" style="width: 100%;"></div>
           <div id="chart2" style="display: none;">
-            <img src="img/wireshark.png" alt="Wireshark PCAP File">
+            <img src="img/wireshark.png" alt="Wireshark PCAP File" width="100%">
           </div>
         </div>
       </div>
     </div>
     <div class="row mt-3">
       <div class="col d-flex justify-content-center">
-        <button type="button" class="btn btn-primary btn mb-5" id="change_viz_button" onclick="changeViz()">Next</button>
+        <button type="button" class="btn btn-primary btn mb-5" id="change_viz_button" onclick="changeViz1()">Next</button>
         <p class="ml-2 mb-0 pt-2 font-weight-light font-italic color-black" id="viz_number">1 out of 2</p>
       </div>
     </div>
 
     <!-- Network diagram chart script -->
-    <!--
+<!-- 
     <div id="container"></div>
       <script>
-        anychart.onDocumentReady(function () {
-          anychart.data.loadJsonFile('TrafficSpikeNetworkData.json', function (data) {
+
+        anychart.onDocumentReady(async function () {
+          let networkdata = await fetch("./TrafficSpikeNetworkData.json");
+          let networkdatajson = networkdata.json();
+          anychart.data.set(networkdatajson);
           // create a chart from the loaded data
           var chart = anychart.graph(data);
           // set the title
           chart.title("Network Graph showing the battles in Game of Thrones");
           // draw the chart
           chart.container("container").draw();
-          });
         });
       </script>
     </div>
-    -->
-
+-->
 
   <!--Modal-->
   <div class="modal fade" id="ansModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -121,7 +122,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="mdlNxt" onclick="nxtQ()" data-dismiss="modal">Next</button>
+          <button type="button" class="btn btn-primary" id="mdlNxt" onclick="nxtQ1()" data-dismiss="modal">Next</button>
         </div>
       </div>
     </div>
