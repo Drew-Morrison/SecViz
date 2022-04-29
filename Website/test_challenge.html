@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Example Challenge</title>
   <meta name="The Packeteers" content="The Packeteers">
+
+  <style>
+    html * {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+
+  <!--Network Diagram code-->
+  <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-graph.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-data-adapter.min.js"></script>
+  <style type="text/css">
+    html, body, #container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
   
   <link href="css/c3.min.css" rel="stylesheet">
   <link rel="icon" href="/favicon.ico">
@@ -13,21 +32,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body class="container-fluid p-0" style="background-color: lightgray; min-height: 100%;">
+<body class="container-fluid p-0" style="background-color: whitesmoke; min-height: 100%;">
   <!--Navbar-->
   <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #38546b;">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="all_challenges.html">
       <img src="img/Logo.png" width="15%" height="auto" class="d-inline-block align-top ml-4" alt="">
     </a>
     <ul class="navbar-nav mr-5">
       <li class="nav-item active mr-5">
-        <a class="nav-link" style="font-size: 20px;" href="#">Practice</a>
+        <a class="nav-link" style="font-size: 20px;" href="all_challenges.html">Practice</a>
       </li>
       <li class="nav-item mr-5">
         <a class="nav-link" style="font-size: 20px;" href="#">Learn</a>
-      </li>
-      <li class="nav-item mr-5">
-        <a class="nav-link" style="font-size: 20px;" href="#">Settings</a>
       </li>
       <li class="nav-item mr-5">
         <a class="nav-link" style="font-size: 20px;" href="#">Account</a>
@@ -35,23 +51,8 @@
     </ul>
   </nav>
 
-  <!--Back btn & Usr/Score-->
-  <div class="container-fluid p-0">
-     <div class="row mt-3 mb-4 ml-5 d-inline-block bg-light rounded" style="width: 91%;">
-       <div class="col-2 d-inline-block p-1">
-         <button type="back" class="btn btn-primary btn-sm d-flex bg-transparent border-0 text-dark" onclick="window.location.href='all_challenges.html'"><b>&#60-- Back</b></button>
-      </div>
-      <div class="col-8 d-inline-block p-1 text-center">
-        <h5 class="d-inline-block">InfoStudentUsername6:</h5>
-         <!--Add firebase comp for usr score-->
-         85
-        <h6 class="d-inline-block">points</h6>
-      </div>
-    </div>
-  </div>
-
   <div class="container-fluid">
-    <div class="row ml-5">
+    <div class="row ml-5 mt-3">
       <div class="col-2 p-0 d-inline-block" style="width: 200px;">
         <div class="card">
           <div class="card-body">
@@ -71,7 +72,7 @@
       </div>
 
       <div class="col-9" style="width: 100%">
-        <div class="card">
+        <div class="card" style="width: 50em;">
           <div id="chart" style="height: 650px;"></div>
           <div id="chart2" style="display: none;">
             <img src="img/wireshark.png" alt="Wireshark PCAP File">
@@ -85,7 +86,25 @@
         <p class="ml-2 mb-0 pt-2 font-weight-light font-italic color-black" id="viz_number">1 out of 2</p>
       </div>
     </div>
-  </div>
+
+    <!-- Network diagram chart script -->
+    <!--
+    <div id="container"></div>
+      <script>
+        anychart.onDocumentReady(function () {
+          anychart.data.loadJsonFile('TrafficSpikeNetworkData.json', function (data) {
+          // create a chart from the loaded data
+          var chart = anychart.graph(data);
+          // set the title
+          chart.title("Network Graph showing the battles in Game of Thrones");
+          // draw the chart
+          chart.container("container").draw();
+          });
+        });
+      </script>
+    </div>
+    -->
+
 
   <!--Modal-->
   <div class="modal fade" id="ansModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -107,6 +126,7 @@
       </div>
     </div>
   </div>
+
   <!--JS Scripts-->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
