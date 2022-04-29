@@ -64,9 +64,15 @@ function nxtQ1() {
 
 
 // Change Visualization
+<<<<<<< HEAD
 function changeViz1() {
+=======
+function changeViz() {
+  // Next Button
+>>>>>>> bbd0c207b664bb35b1458fb24f5af6e716624eac
   let viz_button = document.getElementById('change_viz_button');
   let viz_num = document.getElementById('viz_number');
+  // Visualizations
   let chart_1 = document.getElementById('chart');
   let chart_2 = document.getElementById('chart2');
 
