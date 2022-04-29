@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>All Challenges</title>
+    <meta name="The Packeteers" content="The Packeteers">
+
+    <style>
+        html * {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+    
+    <link href="css/c3.min.css" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="container-fluid p-0" style="background-color: whitesmoke; min-height: 100%;">
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #38546b;">
+      <a class="navbar-brand" href="all_challenges.html">
+        <img src="img/Logo.png" width="15%" height="auto" class="d-inline-block align-top ml-4" alt="">
+      </a>
+      <ul class="navbar-nav mr-5">
+        <li class="nav-item active mr-5">
+          <a class="nav-link" style="font-size: 20px;" href="all_challenges.html">Practice</a>
+        </li>
+        <li class="nav-item mr-5">
+          <a class="nav-link" style="font-size: 20px;" href="#">Learn</a>
+        </li>
+        <li class="nav-item mr-5">
+          <a class="nav-link" style="font-size: 20px;" href="#">Account</a>
+        </li>
+      </ul>
+    </nav> 
+
+    <div class="container-fluid">
+        <div class="row ml-5 mt-3">
+            <div class="col-2 p-0 d-inline-block">
+                <div class="card">
+                    <div class="card-body p-2">
+                        <div class="form-group text-left">
+                            <p class="font-weight-light font-italic color-black mb-1">Search</p>
+                            <input type="default-text" class="form-control py-1" name="ans" id="ansTxt" placeholder="Challenges">
+                        </div>                        
+                        <div class="form-group text-left">
+                            <p class="font-weight-light font-italic color-black mb-1">Categories</p>
+                            <button type="button" id="fltrBtn" class="btn btn-light border" onclick="">Networking</button>
+                            <button type="button" id="fltrBtn" class="btn btn-light border" onclick="">Payload Analysis</button>
+                            <button type="button" id="fltrBtn" class="btn btn-light border" onclick="">Traffic Anomaly</button>
+                            <button type="button" id="fltrBtn" class="btn btn-light border" onclick="">Geolocation</button>
+                        </div>                        
+                        <div class="form-group text-left">
+                            <p class="font-weight-light font-italic color-black mb-1">Difficulty</p>
+                            <button type="button" id="fltrBtn" class="btn btn-light border border-primary" onclick="">Easy</button>
+                            <button type="button" id="fltrBtn" class="btn btn-light border border-primary" onclick="">Medium</button>
+                            <button type="button" id="fltrBtn" class="btn btn-light border border-primary" onclick="">Hard</button>
+                            <button type="button" id="fltrBtn" class="btn btn-light border border-primary" onclick="">Extreme</button>
+                        </div>  
+                        <button type="button" id="ansBtn" class="btn btn-primary btn-sm" onclick="checkAns()">Clear Filters</button>
+                    </div>
+                </div>
+            </div>
+            <!--Main Panel - Challenge Cards-->
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-3 p-0 ml-5 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Traffic Spike</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">2 Questions</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Traffic Anomaly</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-2 pt-2" id="qTxt2" style="font-size: 14px;">Easy - 10 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-3" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0 ml-3 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Working Nets?</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">2 Questions</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Networking</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-1 pt-2" id="qTxt2" style="font-size: 14px;">Extreme - 50 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-2" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0 ml-3 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Worldle Networks</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">3 Questions</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Geolocation</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-2 pt-2" id="qTxt2" style="font-size: 14px;">Hard - 30 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-3" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3 p-0 ml-5 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Working Hard or Hardly Working?</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">1 Question</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Networking</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-1 pt-2" id="qTxt2" style="font-size: 14px;">Medium - 20 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-1" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0 ml-3 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Loading</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">2 Questions</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Payload Analysis</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-1 pt-2" id="qTxt2" style="font-size: 14px;">Extreme - 50 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-2" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0 ml-3 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Rush Hour III</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">2 Questions</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Traffic Anomaly</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-2 pt-2" id="qTxt2" style="font-size: 14px;">Hard - 30 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-3" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3 p-0 ml-5 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Network GeoGuesser</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">4 Questions</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Geolocation</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-1 pt-2" id="qTxt2" style="font-size: 14px;">Extreme - 50 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-1" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0 ml-3 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Rush Hour</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">1 Question</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Traffic Anomaly</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-1 pt-2" id="qTxt2" style="font-size: 14px;">Easy - 10 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-2" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0 ml-3 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Pause</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">3 Questions</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Payload Analysis</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-2 pt-2" id="qTxt2" style="font-size: 14px;">Hard - 30 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-3" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3 p-0 ml-5 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Rush Hour II</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">3 Questions</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Traffic Anomaly</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-1 pt-2" id="qTxt2" style="font-size: 14px;">Medium - 20 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-1" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0 ml-3 mr-3 d-inline-block" style="width: 200px;">
+                        <div class="card" style="min-height: fit-content; height: 250px;">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-0">Traffic Jam</h3>
+                                <h6 class="font-weight-light font-italic text-center" id="qNum">2 Question</h6>
+                                <p class="card-text text-center" id="qTxt1" style="font-size: 14px;">Traffic Anomaly</p>
+                                <div class="row">
+                                    <p class="card-text mb-0 ml-1 pt-2" id="qTxt2" style="font-size: 14px;">Medium - 10 Points</p>
+                                    <button type="back" class="btn btn-primary btn-sm d-inline-block text-right ml-1" onclick="window.location.href='test_challenge.html'">Solve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 text-center">
+                    <div class="col-10">
+                        <p class="font-italic text-muted">You've reached the end of the challenges... ;(</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
