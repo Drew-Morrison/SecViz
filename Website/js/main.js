@@ -20,6 +20,115 @@ var chart = c3.generate({
   }
 });
 
+//Filter by Category for all_challenges
+function filterCategory(fltr) {
+  var fltrLst;
+  fltrLst = document.getElementsByClassName("challenge");
+  
+  for (i = 0; i < fltrLst.length; i++) {
+    let cat = fltrLst[i].firstElementChild.lastElementChild.previousElementSibling.innerHTML;
+
+    if (fltr === cat) {
+      fltrLst[i].style.display = 'block';
+    } else {
+      fltrLst[i].style.display = 'none';
+    }
+  }
+  shiftCards(fltrLst);
+  colorCards();
+}
+
+//Filter by Difficulty for all_challenges
+function filterDifficulty(fltr) {
+  var fltrLst;
+  fltrLst = document.getElementsByClassName("challenge");
+  
+  for (i = 0; i < fltrLst.length; i++) {
+    let dif = fltrLst[i].firstElementChild.lastElementChild.firstElementChild.innerHTML;
+    if (dif.includes(fltr)) {
+      fltrLst[i].style.display = 'block';
+    } else {
+      fltrLst[i].style.display = 'none';
+    }
+  }
+  shiftCards2(fltrLst, fltr);
+  colorCards();
+}
+
+//Colors cards post shifting
+function colorCards() {
+  var fltrLst, fltrLst2;
+  fltrLst = document.getElementsByClassName("wip");
+  fltrLst2 = document.getElementsByClassName("fin");
+
+
+  for (i = 0; i < fltrLst.length; i++) {
+    fltrLst[i].parentElement.style.backgroundColor = 'lightgrey';
+  }
+  for (i = 0; i < fltrLst2.length; i++) {
+    fltrLst2[i].parentElement.style.backgroundColor = 'white';
+  }
+}
+
+//Clear Filters for all_challenges
+function clearFilter() {
+  var fltrLst;
+  fltrLst = document.getElementsByClassName("challenge");
+  
+  for (i = 0; i < fltrLst.length; i++) {
+    fltrLst[i].style.display = 'block';
+  }
+}
+
+function shiftCards(fltrLst) {
+  let cNum = "chlng";
+  for (i = 0; i < fltrLst.length; i++) {
+    if (fltrLst[i].style.display === 'block') {
+      for (j = 0; j < fltrLst.length; j++) {
+        if (fltrLst[j].style.display === 'none' && fltrLst[i].firstElementChild.firstElementChild != fltrLst[j].firstElementChild.firstElementChild) {
+          let shift = document.getElementById(cNum + i);
+          let old = document.getElementById(cNum + j);
+          let oldVal = old.firstElementChild;
+
+          old.replaceChild(shift.firstElementChild, oldVal);
+          old.style.display = 'block';
+          shift.style.display = 'none';
+          shift.appendChild(oldVal);
+          break;
+        } else if (fltrLst[i].firstElementChild.lastElementChild.previousElementSibling.innerHTML === fltrLst[j].firstElementChild.lastElementChild.previousElementSibling.innerHTML && fltrLst[i].firstElementChild.lastElementChild.previousElementSibling != fltrLst[j].firstElementChild.lastElementChild.previousElementSibling) {
+        } else {
+          break;
+        }
+      }
+    }
+  }
+}
+
+function shiftCards2(fltrLst, fltr) {
+  let cNum = "chlng";
+  for (i = 0; i < fltrLst.length; i++) {
+    if (fltrLst[i].style.display === 'block') {
+      for (j = 0; j < fltrLst.length; j++) {
+        if (fltrLst[j].style.display === 'none' && fltrLst[i].firstElementChild.firstElementChild != fltrLst[j].firstElementChild.firstElementChild) {
+          let shift = document.getElementById(cNum + i);
+          let old = document.getElementById(cNum + j);
+          let oldVal = old.firstElementChild;
+
+          old.replaceChild(shift.firstElementChild, oldVal);
+          old.style.display = 'block';
+          shift.style.display = 'none';
+          shift.appendChild(oldVal);
+
+          break;
+        } else if (fltrLst[i].firstElementChild.lastElementChild.firstElementChild.innerHTML.includes(fltr)) {
+        } else {
+          break;
+        }
+      }
+    }
+  }
+}
+
 //Check Ex. Challenge Answer
 function checkAns1() {
   ans = document.f1.ans.value;
@@ -136,4 +245,19 @@ function changeViz2() {
     chart_2.style.display = "none";
   }
   
+}// Check DHCP answer
+function checkAns3() {
+  ans = document.f1.ans.value;
+  if (ans.length == 0) {
+    alert("Please enter an answer before submitting.");
+    return false;
+  }
+
+  if (ans === "195.63.177.2") {
+    let myModal = new bootstrap.Modal(document.getElementById('ansModal'), {});
+    myModal.show();
+  } else {
+    alert("Good guess, but not quite right!");
+    return false;
+  }
 }
