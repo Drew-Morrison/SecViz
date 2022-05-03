@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Geolocation Challenge</title>
+  <meta name="The Packeteers" content="The Packeteers">
+    <style type="text/css">
+        body {
+            color: #5d5d5d;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* Specific mapael css class are below
+         * 'mapael' class is added by plugin
+        */
+
+        .mapael .map {
+            position: relative;
+        }
+
+        .mapael .mapTooltip {
+            position: absolute;
+            background-color: #fff;
+            moz-opacity: 0.70;
+            opacity: 0.70;
+            filter: alpha(opacity=70);
+            border-radius: 10px;
+            padding: 10px;
+            z-index: 1000;
+            max-width: 200px;
+            display: none;
+            color: #343434;
+        }
+
+        .mapael .myLegend {
+            width: 400px;
+            border: 1px solid #bebeb4;
+            background-color: white;
+            width: 600px;
+            padding: 10px;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"
+            charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" charset="utf-8"></script>
+    <script src="Geolocation/js/jquery.mapael.js" charset="utf-8"></script>
+    <script src="Geolocation/js/maps/france_departments.js" charset="utf-8"></script>
+    <script src="Geolocation/js/maps/world_countries.js" charset="utf-8"></script>
+    <script src="Geolocation/js/maps/usa_states.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".mapcontainer").mapael({
+                map: {
+                    name: "france_departments",
+                    defaultArea: {
+                        attrsHover: {
+                            fill: "#343434",
+                            stroke: "#5d5d5d",
+                            "stroke-width": 1,
+                            "stroke-linejoin": "round"
+                        }
+                    }
+                },
+                legend: {
+                    plot: {
+                        cssClass: 'myLegend',
+                        labelAttrs: {
+                            fill: "#4a4a4a"
+                        },
+                        titleAttrs: {
+                            fill: "#4a4a4a"
+                        },
+                        marginBottom: 20,
+                        marginLeft: 30,
+                        hideElemsOnClick: {
+                            opacity: 0
+                        },
+                        title: "   IP address traffic",
+                        slices: [{
+                            size: 6,
+                            type: "circle",
+                            max: 20000,
+                            attrs: {
+                                fill: "#89ff72"
+                            },
+                            label: "Less than 20,000 packets/hour"
+                        }, {
+                            size: 10,
+                            type: "circle",
+                            min: 20000,
+                            max: 100000,
+                            attrs: {
+                                fill: "#fffd72"
+                            },
+                            label: "20,000-100,000 packets/hour"
+                        }, {
+                            size: 16,
+                            type: "circle",
+                            min: 100000,
+                            max: 200000,
+                            attrs: {
+                                fill: "#ffbd54"
+                            },
+                            label: "100,000-200,000 packets/hour"
+                        }, {
+                            size: 30,
+                            type: "circle",
+                            min: 200000,
+                            attrs: {
+                                fill: "#ff5454"
+                            },
+                            label: "More than 200,000 packets/hour"
+                        }]
+                    }
+                },
+                plots: {
+                    "town-75056": {
+                        value: "22682",
+                        latitude: 48.86,
+                        longitude: 2.3444444444444,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">192.245.23.4</span><br />Packets : 22,682"
+                        }
+                    },
+                    "town-13055": {
+                        value: "85936",
+                        latitude: 43.296666666667,
+                        longitude: 5.3763888888889,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">254.84.139.229</span><br />Packets : 85,936"
+                        }
+                    },
+                    "town-69123": {
+                        value: "49257",
+                        latitude: 45.758888888889,
+                        longitude: 4.8413888888889,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">74.58.5.158</span><br />Packets : 49,257"
+                        }
+                    },
+                    "town-31555": {
+                        value: "44932",
+                        latitude: 43.604444444444,
+                        longitude: 1.4419444444444,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">17.156.139.224</span><br />Packets : 44,932"
+                        }
+                    },
+                    "town-06088": {
+                        value: "34710",
+                        latitude: 43.701944444444,
+                        longitude: 7.2683333333333,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">94.11.93.241</span><br />Packets : 34,710"
+                        }
+                    },
+                    "town-44109": {
+                        value: "29323",
+                        latitude: 47.217222222222,
+                        longitude: -1.5538888888889,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">167.252.45.56</span><br />Packets : 29,324"
+                        }
+                    },
+                    "town-67482": {
+                        value: "27640",
+                        latitude: 48.583611111111,
+                        longitude: 7.7480555555556,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">7.5.160.250</span><br />Packets : 27,640"
+                        }
+                    },
+                    "town-34172": {
+                        value: "26057",
+                        latitude: 43.611111111111,
+                        longitude: 3.8766666666667,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">28.104.55.220</span><br />Packets : 26,057"
+                        }
+                    },
+                    "town-33063": {
+                        value: "24294",
+                        latitude: 44.837777777778,
+                        longitude: -0.57944444444444,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">113.4.235.2</span><br />Packets : 24,294"
+                        }
+                    },
+                    "town-59350": {
+                        value: "23405",
+                        latitude: 50.631944444444,
+                        longitude: 3.0575,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">25.26.208.29</span><br />Packets : 23,405"
+                        }
+                    },
+                    "town-35238": {
+                        value: "21293",
+                        latitude: 48.114166666667,
+                        longitude: -1.6808333333333,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">7.245.132.141</span><br />Packets : 21,293"
+                        }
+                    },
+                    "town-51454": {
+                        value: "184011",
+                        latitude: 49.265277777778,
+                        longitude: 4.0286111111111,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">194.229.121.0</span><br />Packets : 184,011"
+                        }
+                    },
+                    "town-76351": {
+                        value: "17807",
+                        latitude: 49.498888888889,
+                        longitude: 0.12111111111111,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">164.45.86.190</span><br />Packets : 17,807"
+                        }
+                    },
+                    "town-42218": {
+                        value: "17456",
+                        latitude: 45.433888888889,
+                        longitude: 4.3897222222222,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">198.66.130.39</span><br />Packets : 17,456"
+                        }
+                    },
+                    "town-83137": {
+                        value: "16685",
+                        latitude: 43.125,
+                        longitude: 5.9305555555556,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">46.119.226.146</span><br />Packets : 16,685"
+                        }
+                    },
+                    "town-38185": {
+                        value: "15824",
+                        latitude: 45.186944444444,
+                        longitude: 5.7263888888889,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">130.84.24.204</span><br />Packets : 15,824"
+                        }
+                    },
+                    "town-21231": {
+                        value: "15523",
+                        latitude: 47.323055555556,
+                        longitude: 5.0419444444444,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">184.178.34.29</span><br />Packets : 15,523"
+                        }
+                    },
+                    "town-49007": {
+                        value: "15195",
+                        latitude: 47.472777777778,
+                        longitude: -0.55555555555556,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">174.164.62.62</span><br />Packets : 15,195"
+                        }
+                    },
+                    "town-72181": {
+                        value: "14710",
+                        latitude: 48.004166666667,
+                        longitude: 0.19694444444444,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">163.88.72.226</span><br />Packets : 14,710"
+                        }
+                    },
+                    "town-69266": {
+                        value: "146729",
+                        latitude: 45.766111111111,
+                        longitude: 4.8794444444444,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">214.39.160.51</span><br />Packets : 146,729"
+                        }
+                    },
+                    "town-97411": {
+                        value: "146489",
+                        latitude: -20.878888888889,
+                        longitude: 55.448055555556,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">238.33.2.87</span><br />Packets : 146,489"
+                        }
+                    },
+                    "town-29019": {
+                        value: "145561",
+                        latitude: 48.39,
+                        longitude: -4.4869444444444,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">163.74.48.114</span><br />Packets : 145,561"
+                        }
+                    },
+                    "town-30189": {
+                        value: "145501",
+                        latitude: 43.836944444444,
+                        longitude: 4.36,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">63.36.207.24</span><br />Packets : 145,501"
+                        }
+                    },
+                    "town-13001": {
+                        value: "144884",
+                        latitude: 43.527777777778,
+                        longitude: 5.4455555555556,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">40.229.69.16</span><br />Packets : 144,884"
+                        }
+                    },
+                    "town-63113": {
+                        value: "143669",
+                        latitude: 45.779722222222,
+                        longitude: 3.0869444444444,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">17.193.153.254</span><br />Packets : 143,669"
+                        }
+                    },
+                    "town-87085": {
+                        value: "14154",
+                        latitude: 45.834444444444,
+                        longitude: 1.2616666666667,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">31.174.193.95</span><br />Packets : 14,154"
+                        }
+                    },
+                    "town-37261": {
+                        value: "138268",
+                        latitude: 47.392777777778,
+                        longitude: 0.68833333333333,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">136.124.50.54</span><br />Packets : 138,268"
+                        }
+                    },
+                    "town-80021": {
+                        value: "136512",
+                        latitude: 49.891944444444,
+                        longitude: 2.2977777777778,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">123.32.45.98</span><br />Packets : 136,512"
+                        }
+                    },
+                    "town-57463": {
+                        value: "12292",
+                        latitude: 49.119722222222,
+                        longitude: 6.1769444444444,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">155.113.195.134</span><br />Packets : 12,292"
+                        }
+                    },
+                    "town-25056": {
+                        value: "121038",
+                        latitude: 47.242222222222,
+                        longitude: 6.0213888888889,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">206.45.173.14</span><br />Packets : 121,038"
+                        }
+                    },
+                    "town-66136": {
+                        value: "1195360",
+                        latitude: 42.6975,
+                        longitude: 2.8947222222222,
+                        href: "#",
+                        tooltip: {
+                            content: "<span style=\"font-weight:bold;\">195.63.177.2</span><br />Packets : 1,195,360"
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+</head>
+
+<body class="container-fluid p-0" style="background-color: whitesmoke; min-height: 100%;">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #38546b;">
+        <a class="navbar-brand" href="all_challenges.html">
+          <img src="img/Logo.png" width="15%" height="auto" class="d-inline-block align-top ml-4" alt="">
+        </a>
+        <ul class="navbar-nav mr-5">
+          <li class="nav-item active mr-5">
+            <a class="nav-link" style="font-size: 20px;" href="all_challenges.html">Practice</a>
+          </li>
+          <li class="nav-item mr-5">
+            <a class="nav-link" style="font-size: 20px;" href="#">Learn</a>
+          </li>
+          <li class="nav-item mr-5">
+            <a class="nav-link" style="font-size: 20px;" href="#">Account</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="container-fluid">
+        <div class="row ml-5 mt-3">
+          <div class="col-2 p-0 d-inline-block" style="width: 200px;">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title text-center mb-0">Network GeoGuesser</h3>
+                <h6 class="font-weight-light font-italic text-center" id="qNum">Question 1</h6>
+                <p class="card-text" id="qTxt1" style="font-size: 14px;">A traffic anomaly has been spotted on this network!</p>
+                <p class="card-text" id="qTxt2" style="font-size: 14px;">Enter the <b>source IP address</b> from where the anomaly originates</p>
+                <form name="f1" id="ansForm" class="text-center">
+                  <div class="form-group text-left">
+                    <p class="font-weight-light font-italic color-black mb-1">Answer:</p>
+                    <input type="default-text" class="form-control py-1" name="ans" id="ansTxt" placeholder="Source IP">
+                  </div>
+                  <button type="button" id="ansBtn" class="btn btn-primary btn-sm" onclick="checkAns3()">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-9" style="width: 100%">
+            <div class="card">
+                <div id="chart" class="card">
+
+                    <h1>French IP traffic volumes</h1>
+                
+                    <div class="mapcontainer">
+                        <div class="map"><span>Alternative content for the map</span>
+                        </div>
+                        <div class="myLegend" style="width: auto;"><span>Alternative content for the legend</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    
+      <!--Modal-->
+      <div class="modal fade" id="ansModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Correct!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="mdlTxt">
+                Exquisite work! Click the 'Finish' to collect your points and return to the challenges page.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="mdlNxt" onclick="window.location.href='all_challenges.html'" data-dismiss="modal">Finish</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="js/main.js"></script>
+</body>
+</html>
