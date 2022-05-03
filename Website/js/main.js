@@ -245,4 +245,19 @@ function changeViz2() {
     chart_2.style.display = "none";
   }
   
+}// Check DHCP answer
+function checkAns3() {
+  ans = document.f1.ans.value;
+  if (ans.length == 0) {
+    alert("Please enter an answer before submitting.");
+    return false;
+  }
+
+  if (ans === "195.63.177.2") {
+    let myModal = new bootstrap.Modal(document.getElementById('ansModal'), {});
+    myModal.show();
+  } else {
+    alert("Good guess, but not quite right!");
+    return false;
+  }
 }

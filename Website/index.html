@@ -56,8 +56,8 @@
       <div class="col-2 p-0 d-inline-block" style="width: 200px;">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title text-center mb-0">Traffic Spike</h3>
-            <h6 class="font-weight-light font-italic text-center" id="qNum">Question 1 of 2</h6>
+            <h3 class="card-title text-center mb-0">Network GeoGuesser</h3>
+            <h6 class="font-weight-light font-italic text-center" id="qNum">Question 1</h6>
             <p class="card-text" id="qTxt1" style="font-size: 14px;">A traffic anomaly has been spotted on this network!</p>
             <p class="card-text" id="qTxt2" style="font-size: 14px;">Enter the <b>source <a href="https://www.geeksforgeeks.org/what-is-an-ip-address/">IP address</a></b> from where the anomaly originates</p>
             <form name="f1" id="ansForm" class="text-center">
@@ -86,26 +86,6 @@
         <p class="ml-2 mb-0 pt-2 font-weight-light font-italic color-black" id="viz_number">1 out of 2</p>
       </div>
     </div>
-
-    <!-- Network diagram chart script -->
-<!-- 
-    <div id="container"></div>
-      <script>
-
-        anychart.onDocumentReady(async function () {
-          let networkdata = await fetch("./TrafficSpikeNetworkData.json");
-          let networkdatajson = networkdata.json();
-          anychart.data.set(networkdatajson);
-          // create a chart from the loaded data
-          var chart = anychart.graph(data);
-          // set the title
-          chart.title("Network Graph showing the battles in Game of Thrones");
-          // draw the chart
-          chart.container("container").draw();
-        });
-      </script>
-    </div>
--->
 
   <!--Modal-->
   <div class="modal fade" id="ansModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
