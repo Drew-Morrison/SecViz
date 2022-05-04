@@ -132,6 +132,7 @@ function shiftCards2(fltrLst, fltr) {
 //Check Ex. Challenge Answer
 function checkAns1() {
   ans = document.f1.ans.value;
+  console.log(ans);
   if (ans.length == 0) {
     alert("Please enter an answer before submitting.");
     return false;
@@ -197,6 +198,7 @@ function changeViz1() {
 // Check DHCP answer
 function checkAns2() {
   ans = document.f1.ans.value;
+  console.log(ans);
   if (ans.length == 0) {
     alert("Please enter an answer before submitting.");
     return false;
@@ -248,7 +250,10 @@ function changeViz2() {
 }// Check DHCP answer
 function checkAns3() {
   ans = document.f1.ans.value;
+  console.log(ans);
+
   if (ans.length == 0) {
+    console.log("breh");
     alert("Please enter an answer before submitting.");
     return false;
   }
