@@ -266,3 +266,9 @@ function checkAns3() {
     return false;
   }
 }
+
+// Show education modal when clicked
+function showModal(){
+  let modal = new bootstrap.Modal(document.getElementById('edu_Modal'), {});
+  modal.show();
+}

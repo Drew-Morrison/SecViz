@@ -59,7 +59,7 @@
             <h3 class="card-title text-center mb-0">Network GeoGuesser</h3>
             <h6 class="font-weight-light font-italic text-center" id="qNum">Question 1</h6>
             <p class="card-text" id="qTxt1" style="font-size: 14px;">A traffic anomaly has been spotted on this network!</p>
-            <p class="card-text" id="qTxt2" style="font-size: 14px;">Enter the <b>source <a href="https://www.geeksforgeeks.org/what-is-an-ip-address/">IP address</a></b> from where the anomaly originates</p>
+            <p class="card-text" id="qTxt2" style="font-size: 14px;">Enter the <b>source <a href="#" onclick="showModal()">IP address</a></b> from where the anomaly originates</p>
             <form name="f1" id="ansForm" class="text-center">
               <div class="form-group text-left">
                 <p class="font-weight-light font-italic color-black mb-1">Answer:</p>
@@ -103,6 +103,28 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary" id="mdlNxt" onclick="nxtQ1()" data-dismiss="modal">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Education Modal for Traffic Spike-->
+  <div class="modal fade" id="edu_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="edu_Modal_Title">What is an IP Address?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="edu_Modal_Text">
+          An IP Address is a number (EX: 8.8.8.8) given to specific computers or networks for identification purposes. <br><br>
+          
+          Learn more about IP Addresses <a href="https://www.geeksforgeeks.org/what-is-an-ip-address/">here!</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
